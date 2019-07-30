@@ -14,7 +14,7 @@ app.set('view engine', 'pug')
 
 
 function buildPayload (data, url) {
-  let fullUrl = `${DEFAULT.url}/${url}`
+  let fullUrl = `${DEFAULT.url}${url}`
   if (data) {
     return {
       name: data.attributes.name,
@@ -30,25 +30,25 @@ app.get('/ecommerce/product/:id', (req, res) => {
   let { id } = req.params
   request(`${API}/products/${id}`, (err, response, body) => {
     if (err) {
-      return res.render('index', buildPayload(null, req.baseUrl))
+      return res.render('index', buildPayload(null, req.url))
     }
     let { data } = JSON.parse(body)
-    res.render('index', buildPayload(data, req.baseUrl))
+    res.render('index', buildPayload(data, req.url))
   })
 })
 app.get('/store/:id', (req, res) => {
   let { id } = req.params
   request(`${API}/brands/${id}`, (err, response, body) => {
     if (err) {
-      return res.render('index', buildPayload(null, req.baseUrl))
+      return res.render('index', buildPayload(null, req.url))
     }
     let { data } = JSON.parse(body)
     data.attributes['image-data'] = data.attributes.logo
-    res.render('index', buildPayload(data, req.baseUrl))
+    res.render('index', buildPayload(data, req.url))
   })
 })
 app.get('*', (req, res) => {
-  res.render('index', buildPayload(null, req.baseUrl))
+  res.render('index', buildPayload(null, req.url))
 })
 app.listen(3101, err => {
   if (err) {
