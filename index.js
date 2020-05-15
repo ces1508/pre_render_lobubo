@@ -1,11 +1,11 @@
 const express = require('express')
 const request = require('request')
-const API = 'https://lobubo.com/api/app'
+const API = 'https://dimo.app/api/app'
 const DEFAULT = {
   image: 'https://s3-us-west-2.amazonaws.com/lobubo/images/lobubo_face.jpg',
   description: 'Atrae cientos de visitantes a tu negocio o emprendimiento',
-  name: 'Lobubo',
-  url: 'https://lobubo.com'
+  name: 'Dimo',
+  url: 'https://dimo.app'
 }
 
 
