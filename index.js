@@ -1,6 +1,6 @@
 const express = require('express')
 const request = require('request')
-const API = 'http://localhost:3000/api/app'
+const API = 'http://localhost:80/api/app'
 const URL = 'https://dimo.app'
 const DEFAULT = {
   image: 'https://s3-us-west-2.amazonaws.com/lobubo/images/lobubo_face.jpg',
