@@ -1,12 +1,12 @@
 const express = require('express')
 const request = require('request')
 const API = 'http://localhost:80/api/app'
-const URL = 'https://dimo.app'
+const URL = 'https://dimo.shop'
 const DEFAULT = {
   image: 'https://s3-us-west-2.amazonaws.com/lobubo/images/lobubo_face.jpg',
   description: 'Atrae cientos de visitantes a tu negocio o emprendimiento',
   name: 'Dimo',
-  url: 'https://dimo.app'
+  url: 'https://dimo.shop'
 }
 const DefaultCoordinates = {
   latitude: 4.708829,
@@ -33,12 +33,12 @@ function buildPayload (data, url) {
 }
 
 app.get('/', (req, res) => {
-  DEFAULT.name = 'Dimo | Compra online moda, tecnologia, mascotas, alimentos y más.',
+  DEFAULT.name = 'Dimo.shop | Compra online moda, tecnologia, mascotas, alimentos y más.',
   DEFAULT.description = 'Dimo tu centro comercial en línea, encuentra marcas 100% colombianas con enviós a todo Colombia. Encuentra moda, tecnología, restaurantes, supermecados.'
   res.render('index', buildPayload(null, req.url))
 })
 app.get('/mobile', (req, res) => {
-  DEFAULT.name = 'Dimo | Compra desde tu celular moda, tecnologia, alimentos y más.'
+  DEFAULT.name = 'Dimo.shop | Compra desde tu celular moda, tecnologia, alimentos y más.'
   DEFAULT.description = 'Dimo tu centro comercial en línea, encuentra marcas 100% colombianas con enviós a todo Colombia. Encuentra moda, tecnología, restaurantes, supermecados.'
   res.render('index', buildPayload(null, req.url))
 })
